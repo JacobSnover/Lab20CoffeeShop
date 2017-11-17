@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@model Lab20CoffeeShop.Models.RegistrationForm
+
+<form action="/Home/Registered" method="post">
+    First Name: <input type="text" name="FirstName" /><br />
+    Last Name: <input type="text" name="LastName" /><br />
+    Email: <input type="email" name="Email" /><br />
+    Phone Number: <input type="text" name="Phone" /><br />
+    Password: <input type="text" name="Password" /><br />
+    <input type="submit" value="Register" />
+
+</form>
