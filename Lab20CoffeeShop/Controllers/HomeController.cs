@@ -33,21 +33,16 @@ namespace Lab20CoffeeShop.Controllers
             return View();
         }
 
-        [HttpPost]
+        
         public ActionResult Registered(RegistrationForm registrationForm)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (registrationForm == null)
-                {
-
-                    return RedirectToAction("Register");
-                }
                 return View();
             }
-            catch
+            else
             {
-                return View();
+                return View("Register");
             }
         }
     }

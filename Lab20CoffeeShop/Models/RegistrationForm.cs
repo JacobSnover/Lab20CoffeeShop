@@ -28,16 +28,18 @@ namespace Lab20CoffeeShop.Models
         private string phone;
         private string password;
 
-        [Required]
-        [StringLength(60, MinimumLength = 4)]
+        [Required(ErrorMessage ="Please enter  First Name")]
+        [StringLength(60, MinimumLength = 4, ErrorMessage ="Please between 4 and 60")]
+        [RegularExpression("^[A-Za-z]$", ErrorMessage ="Must be letters")]
         public string FirstName
         {
             get { return firstname; }
             set { firstname = value; }
         }
 
-        [Required]
-        [StringLength(60, MinimumLength = 4)]
+        [Required(ErrorMessage = "Please enter Last Name")]
+        [StringLength(60, MinimumLength = 4, ErrorMessage = "Please between 4 and 60")]
+        [RegularExpression("^[A-Za-z]$", ErrorMessage ="Must be letters")]
         public string LastName
         {
             get { return lastname; }
@@ -45,7 +47,7 @@ namespace Lab20CoffeeShop.Models
         }
 
         [Required]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
+        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage ="Must be a valid email. ")]
         public string Email
         {
             get { return email; }
@@ -53,13 +55,14 @@ namespace Lab20CoffeeShop.Models
         }
 
         [Required]
+        [RegularExpression("^[0-9]{3}-[0-9]{3}-[0-9]{4}$",ErrorMessage ="Not a valid phone number")]
         public string Phone
         {
             get { return phone; }
             set { phone = value; }
         }
 
-        [Required]
+        [Required(ErrorMessage ="Please enter a valid password")]
         public string Password
         {
             get { return password; }
