@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "UpdateItemForm";
+}
+
+<h2>UpdateItemForm</h2>
+
+@model Lab20CoffeeShop.Models.Item
+
+<div class="container">
+    <h2>UpdateCustomerForm</h2>
+    <form action="/Home/SaveUpdatedItem" method="post" class="form-group">
+        <div class="form-group">
+            <label for="ProdName">ProdName</label>
+            <input type="text" class="form-control" id="ProdName" name="ProdName" readonly value="@ViewBag.output.ProdName" />
+        </div>
+        <div class="form-group">
+            <label for="ProdDesc">ProdDesc</label>
+            <input type="text" class="form-control" id="ProdDesc" name="ProdDesc" value="@ViewBag.output.ProdDesc" required />
+        </div>
+        <div class="form-group">
+            <label for="ProdQuan">ProdQuan</label>
+            <input type="text" class="form-control" id="ProdQuan"  name="ProdQuan" value="@ViewBag.output.ProdQuan" required />
+        </div>
+        <div class="form-group">
+            <label for="ProdPrice">ProdPrice</label>
+            <input type="text" class="form-control" id="ProdPrice"  name="ProdPrice" value="@ViewBag.output.ProdPrice" required />
+        </div>
+        <input type="submit" value="Update Item" />
+    </form>
+</div>

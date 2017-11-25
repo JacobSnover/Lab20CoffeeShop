@@ -68,5 +68,12 @@ namespace Lab20CoffeeShop.Models
             get { return password; }
             set { password = value; }
         }
+
+        public User ToUser(RegistrationForm registrationForm)
+        {
+            RegistrationForm user = registrationForm;
+            return ToUser(user);
+            
+        }
     }
 }

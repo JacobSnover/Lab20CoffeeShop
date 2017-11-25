@@ -40,3 +40,7 @@ C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20Coffee
 C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\obj\Debug\Lab20CoffeeShop.csproj.CoreCompileInputs.cache
 C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\obj\Debug\Lab20CoffeeShop.dll
 C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\obj\Debug\Lab20CoffeeShop.pdb
+C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\bin\EntityFramework.dll
+C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\bin\EntityFramework.SqlServer.dll
+C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\bin\EntityFramework.xml
+C:\Users\ShaKy\Documents\Visual Studio 2017\Projects\Lab20CoffeeShop\Lab20CoffeeShop\bin\EntityFramework.SqlServer.xml

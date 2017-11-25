@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "AddItem";
+}
+
+@model Lab20CoffeeShop.Models.AddItemForm
+
+<h2>AddItem</h2>
+
+<div class="container">
+    <form action="/Home/ItemAdded" method="post" class="form-group">
+        <div class="form-group">
+            <label for="ProdName">Product Name</label> @Html.ValidationMessageFor(x => x.Name)
+            <input type="text" class="form-control" id="ProdName" placeholder="Product Name" pattern="^[A-Za-z0-9]{1,}" name="ProdName" required />
+        </div>
+        <div class="form-group">
+            <label for="ProdDesc">Last Name</label> @Html.ValidationMessageFor(x => x.Desc)
+            <input type="text" class="form-control" id="ProdDesc" placeholder="Description" pattern="^[A-Za-z.]{1,}" name="ProdDesc" required />
+        </div>
+        <div class="form-group">
+            <label for="ProdQuan">Quantity</label> @Html.ValidationMessageFor(x => x.Quan)
+            <input type="text" class="form-control" id="ProdQuan" placeholder="quantity" name="ProdQuan" required />
+        </div>
+        <div class="form-group">
+            <label for="ProdPrice">Price</label> @Html.ValidationMessageFor(x => x.Price)
+            <input type="text" class="form-control" id="ProdPrice" placeholder="$xx.xx" name="ProdPrice" required />
+        </div>
+        <input type="submit" value="Add Item" />
+    </form>
+</div>

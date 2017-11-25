@@ -11,11 +11,11 @@
     <form action="/Home/Registered" method="post" class="form-group">
         <div class="form-group">
         <label for="First Name">First Name</label> @Html.ValidationMessageFor(x => x.FirstName)
-         <input type="text" class="form-control" id="First Name" placeholder="First Name" pattern="^[A-Za-z]{1,}" name="FirstName" required/> 
+         <input type="text" class="form-control" id="First Name" placeholder="First Name" pattern="^[A-Za-z]{1,}" name="First_Name" required/> 
         </div>
         <div class="form-group">
             <label for="Last Name">Last Name</label> @Html.ValidationMessageFor(x => x.LastName)
-             <input type="text" class="form-control" id="Last Name" placeholder="Last Name" pattern="^[A-Za-z]{1,}"  name="LastName" required/> 
+             <input type="text" class="form-control" id="Last Name" placeholder="Last Name" pattern="^[A-Za-z]{1,}"  name="Last_Name" required/> 
         </div>
         <div class="form-group">
             <label for="Email">Email</label> @Html.ValidationMessageFor(x => x.Email)
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="Phone Number">Phone Number</label> @Html.ValidationMessageFor(x => x.Phone)
-             <input type="text" class="form-control" id="Phone Number" placeholder="xxx-xxx-xxxx" pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}" name="Phone" required/>
+             <input type="text" class="form-control" id="Phone Number" placeholder="xxx-xxx-xxxx" name="Phone" required/>
         </div>
         <div class="form-group">
             <label for="Password">Password</label> @Html.ValidationMessageFor(x => x.Password)
