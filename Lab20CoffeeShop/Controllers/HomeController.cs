@@ -1,6 +1,7 @@
 ﻿using Lab20CoffeeShop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,10 +47,20 @@ namespace Lab20CoffeeShop.Controllers
             if (ModelState.IsValid)
             {
                 CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-                ORM.Users.Add(registrationForm);
-                ORM.SaveChanges();
-                ViewBag.FirstName = registrationForm.First_Name;
-                return View("Registered");
+                User user = ORM.Users.Find(registrationForm.Email);
+
+                if (user != null)
+                {
+                    return View("Duplicant");
+                }
+                else
+                {
+                    ORM.Users.Add(registrationForm);
+                    ORM.SaveChanges();
+                    ViewBag.FirstName = registrationForm.First_Name;
+                    return View("Registered");
+                }
+               
             }
             else
             {
@@ -59,6 +70,9 @@ namespace Lab20CoffeeShop.Controllers
 
         public ActionResult ItemList()
         {
+            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            List<Item> temp = ORM.Items.ToList();
+            ViewBag.ItemList = temp;
 
             return View();
         }
@@ -73,6 +87,7 @@ namespace Lab20CoffeeShop.Controllers
             return View();
         }
 
+
         public ActionResult ItemAdded(Item addItemForm)
         {
 
@@ -80,10 +95,21 @@ namespace Lab20CoffeeShop.Controllers
             {
                 
                 CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-                ORM.Items.Add(addItemForm);
-                ORM.SaveChanges();
-                ViewBag.ProdName = addItemForm.ProdName;
-                return View("ItemAdded");
+                Item item = ORM.Items.Find(addItemForm.ProdName);
+
+                if (item != null)
+                {
+                    return View("Duplicant");
+                }
+                else
+                {
+
+                    ORM.Items.Add(addItemForm);
+                    ORM.SaveChanges();
+                    ViewBag.ProdName = addItemForm.ProdName;
+                    return View("ItemAdded");
+                }
+         
             }
             else
             {
