@@ -2,31 +2,33 @@
 @{
     ViewBag.Title = "ItemList";
 }
+<link href="~/Content/TextStyle.css" rel="stylesheet" />
 
 @foreach (var item in ViewBag.ItemList)
 {
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 col-md-3" style="background-color:cadetblue;">
+            <div class="col-sm-2 col-md-3">
                 <h3>Item </h3>
                 <h5>
                     @item.ProdName
                 </h5>
             </div>
-            <div class="col-sm-2 col-md-3" style="background-color:mediumturquoise;">
+            <div class="col-sm-2 col-md-3">
                 <h3> Description </h3>
                 <h5>
                     @item.ProdDesc
                 </h5>
             </div>
-            <div class="col-sm-2 col-md-3" style="background-color:darkgrey;">
+            <div class="col-sm-2 col-md-3">
                 <h3> Price </h3>
                 <h5>
                     @item.ProdPrice
                 </h5>
             </div>
             <div class="col-sm-2 col-md-3">
+                <h3>Select this item?</h3>
                 <p><a class="btn btn-default" href="">Select &raquo;</a></p>
             </div>
         </div>

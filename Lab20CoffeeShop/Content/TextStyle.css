@@ -1,0 +1,26 @@
+﻿body {
+    background-image: url('../models/coffee-espresso-coffee.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+h2 {
+    text-decoration-color: azure;
+    color:azure;
+}
+
+h3 {
+    text-decoration-color: azure;
+    color: azure;
+}
+
+h5 {
+    text-decoration-color: saddlebrown;
+    color: saddlebrown;
+}
+
+p {
+    text-decoration-color: saddlebrown;
+    color:saddlebrown;
+}

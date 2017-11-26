@@ -81,12 +81,11 @@ namespace Lab20CoffeeShop.Controllers
         {
             return View();
         }
-
+        
         public ActionResult AddItem()
         {
             return View();
         }
-
 
         public ActionResult ItemAdded(Item addItemForm)
         {
