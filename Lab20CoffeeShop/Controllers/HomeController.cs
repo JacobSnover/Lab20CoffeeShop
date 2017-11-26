@@ -186,6 +186,25 @@ namespace Lab20CoffeeShop.Controllers
             return RedirectToAction("ListOfItems");
         }
 
-       
+        public ActionResult Image(string ProdDesc)
+        {
+           
+            if (ProdDesc.Contains("Cup"))
+            {
+                ViewBag.MyString = "Cup";
+               
+
+                return View();
+            }
+            else if (ProdDesc.Contains("Bean"))
+            {
+                ViewBag.MyString = "Bean";
+
+                return View();
+            }
+
+            ViewBag.MyString = "neither";
+            return View();
+        }
     }
 }
