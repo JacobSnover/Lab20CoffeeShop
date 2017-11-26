@@ -187,6 +187,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\31itvdQihoL._SL500_AC_SS350_.jpg" />
+    <Content Include="Models\637734.jpg" />
     <Content Include="Models\coffee-espresso-coffee.jpg" />
     <Content Include="Models\UserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -244,6 +246,7 @@
     <Content Include="Views\Home\Duplicant.cshtml" />
     <Content Include="Views\Home\ListItems.cshtml" />
     <Content Include="Views\Home\UpdateItemForm.cshtml" />
+    <Content Include="Views\Home\Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

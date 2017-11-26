@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Web;
 using System.Web.Mvc;
 
@@ -60,7 +62,7 @@ namespace Lab20CoffeeShop.Controllers
                     ViewBag.FirstName = registrationForm.First_Name;
                     return View("Registered");
                 }
-               
+
             }
             else
             {
@@ -81,7 +83,7 @@ namespace Lab20CoffeeShop.Controllers
         {
             return View();
         }
-        
+
         public ActionResult AddItem()
         {
             return View();
@@ -92,7 +94,7 @@ namespace Lab20CoffeeShop.Controllers
 
             if (ModelState.IsValid)
             {
-                
+
                 CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
                 Item item = ORM.Items.Find(addItemForm.ProdName);
 
@@ -108,7 +110,7 @@ namespace Lab20CoffeeShop.Controllers
                     ViewBag.ProdName = addItemForm.ProdName;
                     return View("ItemAdded");
                 }
-         
+
             }
             else
             {
@@ -183,5 +185,7 @@ namespace Lab20CoffeeShop.Controllers
 
             return RedirectToAction("ListOfItems");
         }
+
+       
     }
 }
