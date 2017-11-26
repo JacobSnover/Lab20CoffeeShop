@@ -6,30 +6,29 @@
 @foreach (var item in ViewBag.ItemList)
 {
 
-
-    <div class="row">
-        <div class="col-md-4">
-            <table class="table">
-                <tr>
-                    <th>ProdName</th>
-                    <th>ProdDesc</th>
-                    <th>ProdPrice</th>
-                </tr>
-                <tr>
-                    <td>
-                        @item.ProdName
-                    </td>
-                    <td>
-                        @item.ProdDesc
-                    </td>
-                    <td>
-                        @item.ProdPrice per pound
-                    </td>
-                    <td>
-                        <p><a class="btn btn-default" href="">Select &raquo;</a></p>
-                    </td>
-                </tr>
-            </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 col-md-3" style="background-color:cadetblue;">
+                <h3>Item </h3>
+                <h5>
+                    @item.ProdName
+                </h5>
+            </div>
+            <div class="col-sm-2 col-md-3" style="background-color:mediumturquoise;">
+                <h3> Description </h3>
+                <h5>
+                    @item.ProdDesc
+                </h5>
+            </div>
+            <div class="col-sm-2 col-md-3" style="background-color:darkgrey;">
+                <h3> Price </h3>
+                <h5>
+                    @item.ProdPrice
+                </h5>
+            </div>
+            <div class="col-sm-2 col-md-3">
+                <p><a class="btn btn-default" href="">Select &raquo;</a></p>
+            </div>
         </div>
     </div>
 }

@@ -11,19 +11,19 @@
     <form action="/Home/ItemAdded" method="post" class="form-group">
         <div class="form-group">
             <label for="ProdName">Product Name</label> @Html.ValidationMessageFor(x => x.Name)
-            <input type="text" class="form-control" id="ProdName" placeholder="Product Name" pattern="^[A-Za-z0-9]{1,}" name="ProdName" required />
+            <input type="text" class="form-control" id="ProdName" placeholder="Product Name" pattern="^[A-Za-z0-9._ ]{1,}" name="ProdName" required />
         </div>
         <div class="form-group">
-            <label for="ProdDesc">Last Name</label> @Html.ValidationMessageFor(x => x.Desc)
-            <input type="text" class="form-control" id="ProdDesc" placeholder="Description" pattern="^[A-Za-z.]{1,}" name="ProdDesc" required />
+            <label for="ProdDesc">Product Description</label> @Html.ValidationMessageFor(x => x.Desc)
+            <input type="text" class="form-control" id="ProdDesc" placeholder="Description" pattern="^[A-Za-z0-9.-_ ]{1,}" name="ProdDesc" required />
         </div>
         <div class="form-group">
             <label for="ProdQuan">Quantity</label> @Html.ValidationMessageFor(x => x.Quan)
-            <input type="text" class="form-control" id="ProdQuan" placeholder="quantity" name="ProdQuan" required />
+            <input type="text" class="form-control" id="ProdQuan" placeholder="quantity" pattern="^[0-9]{1,}" name="ProdQuan" required />
         </div>
         <div class="form-group">
             <label for="ProdPrice">Price</label> @Html.ValidationMessageFor(x => x.Price)
-            <input type="text" class="form-control" id="ProdPrice" placeholder="$xx.xx" name="ProdPrice" required />
+            <input type="text" class="form-control" id="ProdPrice" placeholder="xx.xx" pattern="^[0-9]{1,}.[0-9]{1,}" name="ProdPrice" required />
         </div>
         <input type="submit" value="Add Item" />
     </form>
