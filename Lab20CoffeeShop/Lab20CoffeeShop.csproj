@@ -182,14 +182,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\31itvdQihoL._SL500_AC_SS350_.jpg" />
+    <Content Include="Content\Images\637734.jpg" />
+    <Content Include="Content\Images\coffee-espresso-coffee.jpg" />
     <Content Include="Content\TextStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\31itvdQihoL._SL500_AC_SS350_.jpg" />
-    <Content Include="Models\637734.jpg" />
-    <Content Include="Models\coffee-espresso-coffee.jpg" />
     <Content Include="Models\UserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserModel.edmx</DependentUpon>
