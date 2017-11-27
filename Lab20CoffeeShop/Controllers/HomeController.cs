@@ -31,7 +31,7 @@ namespace Lab20CoffeeShop.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
+        } 
 
         public ActionResult Duplicant()
         {
@@ -189,14 +189,14 @@ namespace Lab20CoffeeShop.Controllers
         public ActionResult Image(string ProdDesc)
         {
            
-            if (ProdDesc.Contains("Cup"))
+            if (ProdDesc.ToLower().Contains("Cup".ToLower()))
             {
                 ViewBag.MyString = "Cup";
                
 
                 return View();
             }
-            else if (ProdDesc.Contains("Bean"))
+            else if (ProdDesc.ToLower().Contains("Bean".ToLower()))
             {
                 ViewBag.MyString = "Bean";
 
@@ -205,6 +205,74 @@ namespace Lab20CoffeeShop.Controllers
 
             ViewBag.MyString = "neither";
             return View();
+        }
+
+        public ActionResult ListByCategory(string ProdDesc)
+        {
+            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            List<Item> output = new List<Item>();
+
+            foreach (Item item in ORM.Items.ToList())
+            {
+                if (item.ProdDesc.ToLower().Contains(ProdDesc.ToLower()))
+                {
+                    output.Add(item);
+                }
+            }
+            ViewBag.ItemList = output;
+
+            return View("ItemList");
+        }
+
+        public ActionResult ListByName(string ProdName)
+        {
+            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            List<Item> output = new List<Item>();
+
+            foreach (Item item in ORM.Items.ToList())
+            {
+                if (item.ProdName.ToLower().Contains(ProdName.ToLower()))
+                {
+                    output.Add(item);
+                }
+            }
+            ViewBag.ItemList = output;
+
+            return View("ItemList");
+        }
+
+        public ActionResult AdminListByCategory(string ProdDesc)
+        {
+            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            List<Item> output = new List<Item>();
+
+            foreach (Item item in ORM.Items.ToList())
+            {
+                if (item.ProdDesc.ToLower().Contains(ProdDesc.ToLower()))
+                {
+                    output.Add(item);
+                }
+            }
+            ViewBag.ItemList = output;
+
+            return View("ListItems");
+        }
+
+        public ActionResult AdminListByName(string ProdName)
+        {
+            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            List<Item> output = new List<Item>();
+
+            foreach (Item item in ORM.Items.ToList())
+            {
+                if (item.ProdName.ToLower().Contains(ProdName.ToLower()))
+                {
+                    output.Add(item);
+                }
+            }
+            ViewBag.ItemList = output;
+
+            return View("ListItems");
         }
     }
 }

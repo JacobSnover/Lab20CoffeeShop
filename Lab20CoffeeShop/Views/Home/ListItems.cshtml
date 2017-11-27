@@ -6,7 +6,17 @@
 <link href="~/Content/TextStyle.css" rel="stylesheet" />
 
 <h2>ListItems</h2>
+<form action="/Home/AdminListByName" method="get">
+    <h5>Search by Name</h5>
+    <input type="text" name="ProdName" />
+    <input type="submit" value="Search by Name" />
+</form>
 
+<form action="/Home/AdminListByCategory" method="get">
+    <h5>Search by Category</h5>
+    <input type="text" name="ProdDesc" />
+    <input type="submit" value="Search by Category" />
+</form>
 
 
 <table class="table">

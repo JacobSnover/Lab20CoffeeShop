@@ -4,6 +4,18 @@
 }
 <link href="~/Content/TextStyle.css" rel="stylesheet" />
 
+<form action="/Home/ListByName" method="get">
+    <h5>Search by Name</h5>
+    <input type="text" name="ProdName" />
+    <input type="submit" value="Search by Name" />
+</form>
+
+<form action="/Home/ListByCategory" method="get">
+    <h5>Search by Category</h5>
+    <input type="text" name="ProdDesc" />
+    <input type="submit" value="Search by Category" />
+</form>
+
 @foreach (var item in ViewBag.ItemList)
 {
 
