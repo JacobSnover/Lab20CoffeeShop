@@ -50,6 +50,7 @@ namespace Lab20CoffeeShop.Controllers
             {
                 CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
                 User user = ORM.Users.Find(registrationForm.Email);
+                CoffeeShopDAL DAL = new CoffeeShopDAL();
 
                 if (user != null)
                 {
@@ -57,8 +58,7 @@ namespace Lab20CoffeeShop.Controllers
                 }
                 else
                 {
-                    ORM.Users.Add(registrationForm);
-                    ORM.SaveChanges();
+                    DAL.RegisterUser(registrationForm);
                     ViewBag.FirstName = registrationForm.First_Name;
                     return View("Registered");
                 }
@@ -72,10 +72,10 @@ namespace Lab20CoffeeShop.Controllers
 
         public ActionResult ItemList()
         {
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
             CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-            List<Item> temp = ORM.Items.ToList();
-            ViewBag.ItemList = temp;
-
+            ViewBag.ItemList = DAL.ItemList();
+        
             return View();
         }
 
@@ -94,7 +94,7 @@ namespace Lab20CoffeeShop.Controllers
 
             if (ModelState.IsValid)
             {
-
+                CoffeeShopDAL DAL = new CoffeeShopDAL();
                 CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
                 Item item = ORM.Items.Find(addItemForm.ProdName);
 
@@ -105,8 +105,7 @@ namespace Lab20CoffeeShop.Controllers
                 else
                 {
 
-                    ORM.Items.Add(addItemForm);
-                    ORM.SaveChanges();
+                    DAL.ItemAdded(addItemForm);
                     ViewBag.ProdName = addItemForm.ProdName;
                     return View("ItemAdded");
                 }
@@ -126,36 +125,28 @@ namespace Lab20CoffeeShop.Controllers
 
         public ActionResult ListOfItems()
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
 
-            List<Item> temp = ORM.Items.ToList();
-
-            ViewBag.ItemList = temp;
+            ViewBag.ItemList = DAL.ListOfItems();
 
             return View("ListItems");
         }
 
         public ActionResult DeleteItem(string ProdName)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
 
-            Item output = ORM.Items.Find(ProdName);
-
-            if (output != null)
-            {
-                ORM.Items.Remove(output);
-                ORM.SaveChanges();
-            }
-
+            DAL.DeleteItem(ProdName);
+         
             return RedirectToAction("ListOfItems");
 
         }
 
         public ActionResult UpdateItem(string ProdName)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
 
-            Item output = ORM.Items.Find(ProdName);
+            Item output = DAL.UpdateItem(ProdName);
 
             if (output != null)
             {
@@ -172,16 +163,9 @@ namespace Lab20CoffeeShop.Controllers
 
         public ActionResult SaveUpdatedItem(Item UpdatedItem)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
 
-            Item output = ORM.Items.Find(UpdatedItem.ProdName);
-            output.ProdName = UpdatedItem.ProdName;
-            output.ProdDesc = UpdatedItem.ProdDesc;
-            output.ProdQuan = UpdatedItem.ProdQuan;
-            output.ProdPrice = UpdatedItem.ProdPrice;
-
-            ORM.Entry(output).State = System.Data.Entity.EntityState.Modified;
-            ORM.SaveChanges();
+            Item output = DAL.SaveUpdatedItem(UpdatedItem);
 
             return RedirectToAction("ListOfItems");
         }
@@ -209,68 +193,36 @@ namespace Lab20CoffeeShop.Controllers
 
         public ActionResult ListByCategory(string ProdDesc)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-            List<Item> output = new List<Item>();
-
-            foreach (Item item in ORM.Items.ToList())
-            {
-                if (item.ProdDesc.ToLower().Contains(ProdDesc.ToLower()))
-                {
-                    output.Add(item);
-                }
-            }
-            ViewBag.ItemList = output;
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
+           
+            ViewBag.ItemList = DAL.ListByCategory(ProdDesc);
 
             return View("ItemList");
         }
 
         public ActionResult ListByName(string ProdName)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-            List<Item> output = new List<Item>();
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
 
-            foreach (Item item in ORM.Items.ToList())
-            {
-                if (item.ProdName.ToLower().Contains(ProdName.ToLower()))
-                {
-                    output.Add(item);
-                }
-            }
-            ViewBag.ItemList = output;
+            ViewBag.ItemList = DAL.ListByName(ProdName); ;
 
             return View("ItemList");
         }
 
         public ActionResult AdminListByCategory(string ProdDesc)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-            List<Item> output = new List<Item>();
-
-            foreach (Item item in ORM.Items.ToList())
-            {
-                if (item.ProdDesc.ToLower().Contains(ProdDesc.ToLower()))
-                {
-                    output.Add(item);
-                }
-            }
-            ViewBag.ItemList = output;
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
+           
+            ViewBag.ItemList = DAL.AdminListByCategory(ProdDesc);
 
             return View("ListItems");
         }
 
         public ActionResult AdminListByName(string ProdName)
         {
-            CoffeeShopDBEntities2 ORM = new CoffeeShopDBEntities2();
-            List<Item> output = new List<Item>();
-
-            foreach (Item item in ORM.Items.ToList())
-            {
-                if (item.ProdName.ToLower().Contains(ProdName.ToLower()))
-                {
-                    output.Add(item);
-                }
-            }
-            ViewBag.ItemList = output;
+            CoffeeShopDAL DAL = new CoffeeShopDAL();
+           
+            ViewBag.ItemList = DAL.AdminListByName(ProdName);
 
             return View("ListItems");
         }
